@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Iván Villalba
+ * @author Iván
  */
 public class BlockingQueueManager implements Runnable
 {
