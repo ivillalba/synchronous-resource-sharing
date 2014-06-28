@@ -2,7 +2,7 @@ package ivan.villalba.crs;
 
 /**
  *
- * @author Juan
+ * @author Iván
  */
 public class Task implements Comparable<Task>
 {
