@@ -21,9 +21,9 @@ public class BlockingQueueManager implements Runnable
             try
             {
                 Task currentTask = taskQueue.take();
-                System.out.println("Task dequeued.");
+                System.out.println("Task taken.");
                 processTask(currentTask);
-                System.out.println("Task done. " + taskQueue.size() + " tasks left.");
+                System.out.println("Task done.");
             }
             catch (InterruptedException ex)
             {

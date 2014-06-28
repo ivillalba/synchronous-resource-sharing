@@ -11,40 +11,32 @@ import java.util.logging.Logger;
 public class Producer implements Runnable
 {
     private PriorityBlockingQueue<Task> taskQueue;
+    private String name;
     
-    public Producer(PriorityBlockingQueue queue)
+    public Producer(PriorityBlockingQueue queue, String name)
     {
         this.taskQueue = queue;
+        this.name = name;
     }
 
     @Override
     public void run()
     {
-        for(int i = 0; i < 5; i++)
+        Task newTask = TaskFactory.buildRandomTask();
+
+        synchronized(newTask)
         {
-            Task newTask = TaskFactory.buildRandomTask();
-            
-            synchronized(newTask)
-            {
-                try
-                {
-                    this.taskQueue.add(newTask);
-                    newTask.wait();
-                }
-                catch (InterruptedException ex)
-                {
-                    Logger.getLogger(Producer.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            
             try
             {
-                Thread.sleep(2000L);
-            } 
+                this.taskQueue.add(newTask);
+                newTask.wait();
+            }
             catch (InterruptedException ex)
             {
                 Logger.getLogger(Producer.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+            
+        System.out.println(name + ": My task has been completed with result " + newTask.getResult());
     }
 }

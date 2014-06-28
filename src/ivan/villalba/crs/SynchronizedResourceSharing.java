@@ -17,7 +17,7 @@ public class SynchronizedResourceSharing
         
         for (int i = 0; i < 5; i++)
         {
-            new Thread(new Producer(bqManager.getTaskQueue())).start();
+            new Thread(new Producer(bqManager.getTaskQueue(), "Producer[" + i + "]")).start();
         }
     }
 }
