@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Juan
+ * @author Iván
  */
 public class Producer implements Runnable
 {

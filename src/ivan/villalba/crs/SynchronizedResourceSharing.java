@@ -8,16 +8,22 @@ public class SynchronizedResourceSharing
 {
     /**
      * @param args the command line arguments
+     * @throws java.lang.InterruptedException
      */
-    public static void main(String[] args)
+    public static void main(String[] args) throws InterruptedException
     {
         BlockingQueueManager bqManager = new BlockingQueueManager();
         
-        new Thread(bqManager).start();
+        Thread manager = new Thread(bqManager);
+        manager.start();
         
         for (int i = 0; i < 5; i++)
         {
-            new Thread(new Producer(bqManager.getTaskQueue(), "Producer[" + i + "]")).start();
+            Thread t = new Thread(new Producer(bqManager.getTaskQueue(), "Producer[" + i + "]"));
+            t.start();
+            t.join();
         }
+        
+        manager.interrupt();
     }
 }

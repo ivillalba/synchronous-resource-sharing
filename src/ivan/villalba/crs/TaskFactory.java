@@ -8,7 +8,7 @@ import java.util.Random;
  */
 public class TaskFactory
 {
-    private static String[] taskNames = {"cooking", "programming JAVA", "reading", "learning AngularJS"};
+    private static String[] taskNames = {"cooking", "programming in JAVA", "reading", "learning AngularJS"};
     
     public static Task buildRandomTask()
     {
