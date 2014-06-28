@@ -27,7 +27,8 @@ public class BlockingQueueManager implements Runnable
             }
             catch (InterruptedException ex)
             {
-                Logger.getLogger(BlockingQueueManager.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println("Interrupt signal received. Finishing...");
+                return;
             }
         }
     }
