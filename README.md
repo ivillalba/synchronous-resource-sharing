@@ -1,6 +1,6 @@
 synchronous-resource-sharing
 ============================
 
-http://ivillalba.blogspot.com.es synchronous resource sharing sample.
+http://ivillalba.blogspot.com.es/2014/06/synchronous-resource-sharing-blocking.html synchronous resource sharing sample.
 
-Sample NetBeans project of a simple Synchronous resource manager based on a PriorityBlockingQueue.
+NetBeans sample project of a simple Synchronous resource manager based on PriorityBlockingQueue.
